@@ -21,6 +21,7 @@ class OrderSerializer(serializers.ModelSerializer):
         }
 
     def create(self, validated_data):
+        print(f"DEBUG: validated_data for order: {validated_data}")
         items_data = validated_data.pop('items')
         order = Order.objects.create(**validated_data)
         
